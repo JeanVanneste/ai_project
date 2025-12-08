@@ -1,6 +1,6 @@
 names:
 - wheelchair
 nc: 1
-path: /home/jeanv/dev/ai_project/Stib4All/detection/Wheelchair-1
+path: /home/jean/dev/ai_project/Stib4All/detection/Wheelchair-1
 train: train/images
 val: test/images

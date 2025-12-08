@@ -10,7 +10,7 @@ imgsz: 640
 save: true
 save_period: -1
 cache: false
-device: '0'
+device: cpu
 workers: 8
 project: .
 name: yolov8_custom
@@ -103,4 +103,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: /home/jeanv/dev/ai_project/Stib4All/detection/yolov8_custom
+save_dir: /home/jean/dev/ai_project/Stib4All/detection/yolov8_custom
