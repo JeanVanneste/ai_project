@@ -1,0 +1,7 @@
+names:
+- homme
+- femme
+nc: 2
+path: /home/jeanv/dev/ai_project/Notebooks/yolo_finetuning/dataset
+train: train/images
+val: valid/images
