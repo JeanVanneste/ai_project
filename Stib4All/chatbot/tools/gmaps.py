@@ -1,4 +1,5 @@
 import os, json
+import datetime
 
 import requests
 from dotenv import load_dotenv
@@ -9,7 +10,6 @@ from langchain.tools import tool
 def init():
     load_dotenv(override=True)
 
-@tool
 def get_coordinates(place: str):
     """
     Retrieve the Google Places ID for a given place name located in Brussels.
@@ -47,7 +47,6 @@ def get_coordinates(place: str):
 
     return place_id
 
-@tool
 def get_route(origin: str, destination: str, departure_time:str):
     """
     Computes a public transit route between two locations using the Google Routes API.
@@ -90,8 +89,23 @@ def get_route(origin: str, destination: str, departure_time:str):
 
     directions = requests.post("https://routes.googleapis.com/directions/v2:computeRoutes", json=payload, params=params).json()
 
+    #with open("last_itinerary.json", "w") as f:
+    #    f.write(json.dumps(directions))
+
     return directions
 
+def get_current_time():
+    """
+    Get the current local time as an RFC 3339–formatted string.
+
+    The current time is obtained in UTC and then converted to the
+    system's local timezone.
+
+    Returns:
+        str: The current local datetime in RFC 3339 format.
+    """
+    n = datetime.datetime.now(datetime.timezone.utc).astimezone()
+    return n.isoformat()
 
 if __name__ == "__main__":
     print("gmaps tools module")
